@@ -23,7 +23,8 @@
     "clear-dist": "rm -rf dist",
     "build": "npm run clear-dist && babel src --out-dir dist",
     "test": "jest tests --bail",
-    "test:watch": "jest tests --bail --watch",
+    "test:watch": "npm test -- --watch",
+    "test:coverage": "npm test -- --coverage --coverageProvider=v8",
     "lint": "npx eslint --ext .js .",
     "lint:fix": "npx eslint --fix --ext .js ."
   },
