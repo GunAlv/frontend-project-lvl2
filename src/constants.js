@@ -1,5 +1,7 @@
 const FILE_FORMATS = {
   JSON: 'json',
+  YAML: 'yaml',
+  YML: 'yml',
 };
 
 const DIFF_TYPES = {
