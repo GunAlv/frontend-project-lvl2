@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import hasOwnProperty from './helpers.js';
+import buildAST from './build-ast.js';
 
 import { FILE_FORMATS, DIFF_TYPES } from './constants.js';
 
@@ -13,33 +13,6 @@ const getFileData = (file) => {
   if (format === FILE_FORMATS.JSON) return JSON.parse(config);
 
   return config;
-};
-
-const getDiff = (config1, config2) => {
-  const config1Keys = Object.keys(config1);
-  const config2Keys = Object.keys(config2);
-  const mergedKeys = [...new Set([...config1Keys, ...config2Keys])];
-
-  const result = mergedKeys.map((currentKey) => {
-    const config1Value = config1[currentKey];
-    const config2Value = config2[currentKey];
-
-    switch (true) {
-      case config1Value === config2Value:
-        return { type: DIFF_TYPES.EQUAL, key: currentKey, value: config1Value };
-      case hasOwnProperty(config1, currentKey) && !hasOwnProperty(config2, currentKey):
-        return { type: DIFF_TYPES.REMOVED, key: currentKey, value: config1Value };
-      case !hasOwnProperty(config1, currentKey) && hasOwnProperty(config2, currentKey):
-        return { type: DIFF_TYPES.ADDED, key: currentKey, value: config2Value };
-      case config1Value !== config2Value:
-        return { type: DIFF_TYPES.UNEQUAL, key: currentKey, value: { old: config1Value, new: config2Value } };
-      default:
-        throw new Error(`${currentKey} can't be compared`);
-    }
-  })
-    .sort((a, b) => a.key.localeCompare(b.key));
-
-  return result;
 };
 
 const renderDiff = (diff, format) => {
@@ -72,7 +45,7 @@ const genDiff = (file1, file2, format = FILE_FORMATS.JSON) => {
   const config1 = getFileData(file1);
   const config2 = getFileData(file2);
 
-  const diff = getDiff(config1, config2, format);
+  const diff = buildAST(config1, config2);
 
   return renderDiff(diff, format);
 };
