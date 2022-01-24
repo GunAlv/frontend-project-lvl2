@@ -1,18 +1,43 @@
+import path from 'path';
+import fs from 'fs';
+
 import gendiff from '../src/gendiff.js';
 
-test('gendiff', () => {
-  const config1 = `${__dirname}/../fixtures/config1.json`;
-  const config2 = `${__dirname}/../fixtures/config2.json`;
+function getFixtureFile(file) {
+  return `${__dirname}/../fixtures/${file}`;
+}
 
-  const expected = `[
-  "- follow: false",
-  "  host: hexlet.io",
-  "- proxy: 123.234.53.22",
-  "- timeout: 50",
-  "+ timeout: 20",
-  "+ verbose: true"
-]`;
+function getExpectedFile(file) {
+  const expectedPath = path.resolve(getFixtureFile(file));
 
-  expect(gendiff(config1, config2))
-    .toEqual(expected)
+  return fs.readFileSync(expectedPath, 'utf-8');
+}
+
+describe('gendiff json format output', () => {
+  it('json files', () => {
+    const config1 = getFixtureFile('config1.json');
+    const config2 = getFixtureFile('config2.json');
+
+    const expected = getExpectedFile('expected-json.txt');
+
+    expect(gendiff(config1, config2)).toEqual(expected)
+  });
+
+  it('yml files', () => {
+    const config1 = getFixtureFile('config1.yml');
+    const config2 = getFixtureFile('config2.yml');
+
+    const expected = getExpectedFile('expected-json.txt');
+
+    expect(gendiff(config1, config2)).toEqual(expected)
+  });
+
+  it('yaml files', () => {
+    const config1 = getFixtureFile('config1.yaml');
+    const config2 = getFixtureFile('config2.yaml');
+
+    const expected = getExpectedFile('expected-json.txt');
+
+    expect(gendiff(config1, config2)).toEqual(expected)
+  });
 });
