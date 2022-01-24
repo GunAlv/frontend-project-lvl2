@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+import parse from './parsers/index.js';
 import buildAST from './build-ast.js';
 
 import { FILE_FORMATS, DIFF_TYPES } from './constants.js';
@@ -10,9 +11,7 @@ const getFileData = (file) => {
   const [, format] = path.extname(filePathConfig).split('.');
   const config = fs.readFileSync(filePathConfig, 'utf-8');
 
-  if (format === FILE_FORMATS.JSON) return JSON.parse(config);
-
-  return config;
+  return parse(format, config);
 };
 
 const renderDiff = (diff, format) => {
