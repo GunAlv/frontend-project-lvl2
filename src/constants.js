@@ -5,6 +5,7 @@ const FILE_FORMATS = {
 };
 
 const DIFF_TYPES = {
+  NESTED: 'nested',
   EQUAL: 'equal',
   REMOVED: 'removed',
   ADDED: 'added',
