@@ -13,12 +13,12 @@ function getExpectedFile(file) {
   return fs.readFileSync(expectedPath, 'utf-8');
 }
 
-describe('gendiff json format output', () => {
+describe('gendiff stylish format output', () => {
   it('json files', () => {
     const config1 = getFixtureFile('config1.json');
     const config2 = getFixtureFile('config2.json');
 
-    const expected = getExpectedFile('expected-json.txt');
+    const expected = getExpectedFile('expected-stylish.txt');
 
     expect(gendiff(config1, config2)).toEqual(expected)
   });
@@ -27,7 +27,7 @@ describe('gendiff json format output', () => {
     const config1 = getFixtureFile('config1.yml');
     const config2 = getFixtureFile('config2.yml');
 
-    const expected = getExpectedFile('expected-json.txt');
+    const expected = getExpectedFile('expected-stylish.txt');
 
     expect(gendiff(config1, config2)).toEqual(expected)
   });
@@ -36,7 +36,7 @@ describe('gendiff json format output', () => {
     const config1 = getFixtureFile('config1.yaml');
     const config2 = getFixtureFile('config2.yaml');
 
-    const expected = getExpectedFile('expected-json.txt');
+    const expected = getExpectedFile('expected-stylish.txt');
 
     expect(gendiff(config1, config2)).toEqual(expected)
   });
