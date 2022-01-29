@@ -34,4 +34,7 @@ const buildAST = (config1, config2) => {
   return result;
 };
 
-export default buildAST;
+export default (config1, config2) => ({
+  type: DIFF_TYPES.ROOT,
+  children: buildAST(config1, config2),
+});

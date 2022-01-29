@@ -1,3 +1,7 @@
+const OUTPUT_FORMATS = {
+  STYLISH: 'stylish',
+};
+
 const FILE_FORMATS = {
   JSON: 'json',
   YAML: 'yaml',
@@ -5,6 +9,7 @@ const FILE_FORMATS = {
 };
 
 const DIFF_TYPES = {
+  ROOT: 'root',
   NESTED: 'nested',
   EQUAL: 'equal',
   REMOVED: 'removed',
@@ -12,4 +17,4 @@ const DIFF_TYPES = {
   UNEQUAL: 'unequal',
 };
 
-export { FILE_FORMATS, DIFF_TYPES };
+export { OUTPUT_FORMATS, FILE_FORMATS, DIFF_TYPES };

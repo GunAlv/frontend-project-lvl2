@@ -8,6 +8,6 @@ const parsers = {
   [FILE_FORMATS.YML]: yaml.load,
 };
 
-const parse = (type, config) => parsers[type](config);
+const parse = (config, type) => parsers[type](config);
 
 export default parse;
