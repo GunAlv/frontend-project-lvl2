@@ -1,15 +1,12 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { readFile } from 'fs/promises';
 import genDiff from '../src/gendiff.js';
-
-const { version } = JSON.parse(await readFile(new URL('../package.json', import.meta.url)));
 
 const program = new Command();
 
 program
-  .version(version)
+  .version('0.0.1')
   .description('Compare two configuration files and shows a difference.')
   .option('-f, --format [type]', 'output format')
   .arguments('<filepath1> <filepath2>')

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { DIFF_TYPES } from './constants.js';
 import { isObject, hasOwnProperty } from './helpers.js';
 

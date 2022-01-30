@@ -22,7 +22,7 @@ describe('gendiff stylish format output', () => {
 
     const expected = getExpectedFile('expected-stylish.txt');
 
-    expect(gendiff(config1, config2)).toEqual(expected)
+    expect(gendiff(config1, config2)).toEqual(expected);
   });
 
   it('yml files', () => {
@@ -31,7 +31,7 @@ describe('gendiff stylish format output', () => {
 
     const expected = getExpectedFile('expected-stylish.txt');
 
-    expect(gendiff(config1, config2)).toEqual(expected)
+    expect(gendiff(config1, config2)).toEqual(expected);
   });
 
   it('yaml files', () => {
@@ -40,7 +40,7 @@ describe('gendiff stylish format output', () => {
 
     const expected = getExpectedFile('expected-stylish.txt');
 
-    expect(gendiff(config1, config2)).toEqual(expected)
+    expect(gendiff(config1, config2)).toEqual(expected);
   });
 });
 
@@ -51,7 +51,7 @@ describe('gendiff plain format output', () => {
 
     const expected = getExpectedFile('expected-plain.txt');
 
-    expect(gendiff(config1, config2, OUTPUT_FORMATS.PLAIN)).toEqual(expected)
+    expect(gendiff(config1, config2, OUTPUT_FORMATS.PLAIN)).toEqual(expected);
   });
 
   it('yml files', () => {
@@ -60,7 +60,7 @@ describe('gendiff plain format output', () => {
 
     const expected = getExpectedFile('expected-plain.txt');
 
-    expect(gendiff(config1, config2, OUTPUT_FORMATS.PLAIN)).toEqual(expected)
+    expect(gendiff(config1, config2, OUTPUT_FORMATS.PLAIN)).toEqual(expected);
   });
 
   it('yaml files', () => {
@@ -69,7 +69,7 @@ describe('gendiff plain format output', () => {
 
     const expected = getExpectedFile('expected-plain.txt');
 
-    expect(gendiff(config1, config2, OUTPUT_FORMATS.PLAIN)).toEqual(expected)
+    expect(gendiff(config1, config2, OUTPUT_FORMATS.PLAIN)).toEqual(expected);
   });
 });
 
@@ -80,7 +80,7 @@ describe('gendiff json format output', () => {
 
     const expected = getExpectedFile('expected-json.txt');
 
-    expect(gendiff(config1, config2, OUTPUT_FORMATS.JSON)).toEqual(expected)
+    expect(gendiff(config1, config2, OUTPUT_FORMATS.JSON)).toEqual(expected);
   });
 
   it('yml files', () => {
@@ -89,7 +89,7 @@ describe('gendiff json format output', () => {
 
     const expected = getExpectedFile('expected-json.txt');
 
-    expect(gendiff(config1, config2, OUTPUT_FORMATS.JSON)).toEqual(expected)
+    expect(gendiff(config1, config2, OUTPUT_FORMATS.JSON)).toEqual(expected);
   });
 
   it('yaml files', () => {
@@ -98,6 +98,6 @@ describe('gendiff json format output', () => {
 
     const expected = getExpectedFile('expected-json.txt');
 
-    expect(gendiff(config1, config2, OUTPUT_FORMATS.JSON)).toEqual(expected)
+    expect(gendiff(config1, config2, OUTPUT_FORMATS.JSON)).toEqual(expected);
   });
 });
