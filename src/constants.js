@@ -1,6 +1,7 @@
 const OUTPUT_FORMATS = {
   STYLISH: 'stylish',
   PLAIN: 'plain',
+  JSON: 'json',
 };
 
 const FILE_FORMATS = {
