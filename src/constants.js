@@ -1,5 +1,6 @@
 const OUTPUT_FORMATS = {
   STYLISH: 'stylish',
+  PLAIN: 'plain',
 };
 
 const FILE_FORMATS = {
